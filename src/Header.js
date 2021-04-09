@@ -3,12 +3,19 @@ import './Header.css'
 import '@material-ui/icons';
 import SearchIcon from '@material-ui/icons/Search';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import { Link } from 'react-router-dom';
+import { useDataLayerValue } from './Datalayer';
 
 function Header() {
+    const [{cart}, dispatch] = useDataLayerValue();
     return (
         <div className='header'>
-            <img className='heder__logo'
+            <Link to='/'>
+                <img className='header__logo'
                  src='http://pngimg.com/uploads/amazon/amazon_PNG11.png' />
+            
+            </Link>
+            
             
             <div className='header__search'>
                 <input className='header__searchInput' type='text' />
@@ -47,12 +54,14 @@ function Header() {
 
                 </div>
 
-                <div className='header__optionCart'>
+                <Link to='/checkout'>
+                    <div className='header__optionCart'>
                     <ShoppingCartIcon />
-                    <span className='header__optionSecondLine header__cartCount'>0</span>
+                    <span className='header__optionSecondLine header__cartCount'>{cart?.length}</span>
+                    </div>
+                </Link>
 
-
-                </div>
+                
 
             </div>
         </div>

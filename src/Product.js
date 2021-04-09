@@ -1,8 +1,27 @@
 import React from 'react'
 import './Product.css';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
+import { useDataLayerValue } from './Datalayer';
 
-function Product({title, cost, imgUrl, rating}) {
+function Product({id,title, cost, imgUrl, rating}) {
+    const [{cart}, dispatch] = useDataLayerValue();
+
+    console.log("This is in the cart >>>", cart)
+    const addToCart = () =>{
+        dispatch({
+            type:"ADD_TO_CART",
+            item: {
+                id: id,
+                title: title,
+                cost: cost,
+                imgUrl: imgUrl,
+                rating: rating,
+
+            },
+        });
+
+    }
+
     return (
         <div className='product'>
             <div className='product__info'>
@@ -28,7 +47,7 @@ function Product({title, cost, imgUrl, rating}) {
                 src={imgUrl} alt='product'>
             </img>
 
-            <button>
+            <button onClick={addToCart}>
                 <AddShoppingCartIcon />
                 <p>Add to Cart</p>
             </button>

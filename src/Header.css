@@ -18,7 +18,7 @@
   background-color: #f3a847;
 }
 
-.header > img {
+.header__logo {
   width: 100px;
   object-fit: contain;
   margin: 0 20px;
@@ -64,6 +64,7 @@
 .header__optionCart {
   display: flex;
   align-items: center;
+  color: white;
 }
 
 .header__cartCount {

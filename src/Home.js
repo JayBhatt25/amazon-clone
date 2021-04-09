@@ -13,7 +13,7 @@ function Home() {
 
                 <div className='home__row'>
                     <Product id="546322" 
-                    title='Beean Bag' 
+                    title='EuroShop Super Comfy Leatherette Bean Bag and Puffy Cover (Set of 2, Without Beans)' 
                     cost={799} 
                     imgUrl='https://m.media-amazon.com/images/I/81twKvoZnzL._AC_UL320_.jpg' 
                     rating={5} />
@@ -28,7 +28,7 @@ function Home() {
 
                 <div className='home__row'>
                     <Product id="3242347"
-                    title='Beean Bag' 
+                    title='EuroShop Super Comfy Leatherette Bean Bag and Puffy Cover (Set of 2, Without Beans)' 
                     cost={799} 
                     imgUrl='https://m.media-amazon.com/images/I/81twKvoZnzL._AC_UL320_.jpg' 
                     rating={4} />
@@ -41,7 +41,8 @@ function Home() {
                 </div>
 
                 <div className='home__row'>
-                <Product title='Beean Bag' cost={799} imgUrl='https://m.media-amazon.com/images/I/81twKvoZnzL._AC_UL320_.jpg' />
+                <Product id ="231243245" title='EuroShop Super Comfy Leatherette Bean Bag and Puffy Cover (Set of 2, Without Beans)' 
+                cost={799} imgUrl='https://m.media-amazon.com/images/I/81twKvoZnzL._AC_UL320_.jpg' rating={3} />
                     {/* Product */}
 
                 </div>
