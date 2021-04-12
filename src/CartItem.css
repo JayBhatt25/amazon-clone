@@ -1,0 +1,36 @@
+.cartitem {
+  display: flex;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.cartitem__rating {
+  display: flex;
+}
+
+.cartitem__image {
+  object-fit: contain;
+  width: 180px;
+  height: 180px;
+}
+
+.cartitem__info {
+  display: flex;
+  flex-direction: column;
+  padding-left: 20px;
+}
+
+.cartitem__info > button {
+  background-color: #f0c14b;
+  border-radius: 2px;
+  cursor: pointer;
+  border: 1px solid;
+  color: #111;
+  width: 180px;
+  margin-top: 10px;
+}
+
+.cartitem__title {
+  font-size: 17px;
+  font-weight: 700;
+}
