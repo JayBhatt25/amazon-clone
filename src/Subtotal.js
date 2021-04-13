@@ -1,6 +1,5 @@
 import React from 'react'
 import './Subtotal.css'
-import NumberFormat from 'react-number-format';
 import { useDataLayerValue } from './Datalayer';
 
 

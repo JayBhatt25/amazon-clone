@@ -5,9 +5,19 @@ import SearchIcon from '@material-ui/icons/Search';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import { Link } from 'react-router-dom';
 import { useDataLayerValue } from './Datalayer';
+import { auth } from './firebase';
 
 function Header() {
-    const [{cart}, dispatch] = useDataLayerValue();
+    const [{cart, user}, dispatch] = useDataLayerValue();
+
+    const handleAuthentication = () => {
+        if(user){
+            auth .signOut();
+
+        }
+        
+    }
+    
     return (
         <div className='header'>
             <Link to='/'>
@@ -24,14 +34,13 @@ function Header() {
             </div>
 
             <div className='header__nav'>
-                
-                <Link to='/login'>
-                <div className='header__option'>
+                <Link to={ !user && '/login'}>
+                <div onClick={handleAuthentication}  className='header__option'>
                     <span className='header__optionFirstLine'>
-                        Hello Guest
+                        Hello {user ? `${user.email}` : 'Guest'}
                     </span>
                     <span className='header__optionSecondLine'>
-                        Sign In
+                         {user ? 'Sign Out' : 'Sign In'}
                     </span>
                 </div>
                 </Link>

@@ -10,6 +10,7 @@
   /* max-width: 100px; */
   background-color: white;
   justify-content: flex-end;
+  transition: all 250ms ease-in-out;
 }
 
 .product__info {
@@ -44,4 +45,9 @@
 
 .product > button > p {
   margin-left: 10px;
+}
+
+.product:hover {
+  transform: scale(1.02);
+  border: 1px solid orangered;
 }

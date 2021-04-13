@@ -6,7 +6,7 @@ import { useDataLayerValue } from './Datalayer';
 function Product({id,title, cost, imgUrl, rating}) {
     const [{cart}, dispatch] = useDataLayerValue();
 
-    console.log("This is in the cart >>>", cart)
+  
     const addToCart = () =>{
         dispatch({
             type:"ADD_TO_CART",

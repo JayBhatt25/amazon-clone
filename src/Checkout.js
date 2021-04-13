@@ -5,6 +5,7 @@ import Subtotal from './Subtotal'
 import {getCartTotal} from './reducer'
 import Product from './Product'
 import CartItem from './CartItem'
+import FlipMove from 'react-flip-move'
 
 function Checkout() {
     const [{cart}, dispatch] = useDataLayerValue();
@@ -19,15 +20,19 @@ function Checkout() {
 
                 <div>
                     <h2 className='checkout__title'>Your Shopping Cart</h2>
-                    {cart?.map(item => (
+                   
+                        {cart?.map(item => (
 
                         <CartItem id={item.id} 
                         title={item.title} 
                         cost={item.cost} 
                         imgUrl={item.imgUrl} 
                         rating={item.rating} />
-                        
-                    ))}
+
+                        ))}
+
+                   
+                   
                     
 
                 </div>

@@ -55,7 +55,7 @@ function Login() {
                 </form>
 
                 <p>
-                By continuing, you agree to Amazon's Conditions of Use and Privacy Notice.
+                By continuing, you agree to Amazon Clone's Conditions of Use and Privacy Notice.
                 </p>
 
                 <p>New to Amazon ?</p> 
