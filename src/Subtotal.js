@@ -1,9 +1,10 @@
 import React from 'react'
 import './Subtotal.css'
 import { useDataLayerValue } from './Datalayer';
+import {useHistory} from 'react-router-dom'
 
 
-const numberFormat = (valuee) => 
+export const numberFormat = (valuee) => 
         new Intl.NumberFormat('en-IN', {
             style: 'currency',
             currency: 'INR'
@@ -11,6 +12,7 @@ const numberFormat = (valuee) =>
 
 function Subtotal({value}) {
     const [{cart}, dispatch] = useDataLayerValue();
+    const history = useHistory();
     
     return (
         <div className='subtotal'>
@@ -22,7 +24,7 @@ function Subtotal({value}) {
                 <input type="checkbox"/> This order contains a gift
             </small>
 
-            <button>Proceed to Checkout</button>
+            <button onClick= {e => history.push('/payment')} >Proceed to Checkout</button>
             
         </div>
     )

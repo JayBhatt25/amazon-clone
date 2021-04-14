@@ -40,6 +40,14 @@ const reducer = (state, action) => {
                 user:action.user
             }
 
+        case 'RESET_CART':
+            
+            
+            return{
+                ...state,
+                cart: initialState.cart
+            }
+
         
 
         default:

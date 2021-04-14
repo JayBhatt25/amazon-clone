@@ -14,6 +14,12 @@ function Header() {
         if(user){
             auth .signOut();
 
+            dispatch({
+                type: "RESET_CART",
+                
+
+            })
+
         }
         
     }
