@@ -48,6 +48,7 @@
 
 .header__option {
   display: flex;
+  cursor: pointer;
   flex-direction: column;
   margin-left: 10px;
   margin-right: 10px;

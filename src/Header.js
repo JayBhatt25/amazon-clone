@@ -3,12 +3,13 @@ import './Header.css'
 import '@material-ui/icons';
 import SearchIcon from '@material-ui/icons/Search';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { useDataLayerValue } from './Datalayer';
 import { auth } from './firebase';
 
 function Header() {
     const [{cart, user}, dispatch] = useDataLayerValue();
+    const history = useHistory();
 
     const handleAuthentication = () => {
         if(user){
@@ -51,7 +52,7 @@ function Header() {
                 </div>
                 </Link>
                 
-                <div className='header__option'>
+                <div onClick={e => {history.push('/orders')}} className='header__option'>
                     <span className='header__optionFirstLine'>
                         Returns
                     </span>

@@ -48,7 +48,11 @@ const reducer = (state, action) => {
                 cart: initialState.cart
             }
 
-        
+        case 'EMPTY_CART':
+            return{
+                ...state,
+                cart:[]
+            }
 
         default:
             return state;

@@ -2,7 +2,7 @@ import React from 'react'
 import './CartItem.css'
 import { useDataLayerValue } from './Datalayer';
 
-function CartItem({id,title, cost, imgUrl, rating}) {
+function CartItem({id,title, cost, imgUrl, rating, hidden}) {
     const [{cart}, dispatch] = useDataLayerValue();
 
     const removeFromCart = () => {
@@ -27,9 +27,9 @@ function CartItem({id,title, cost, imgUrl, rating}) {
                 <p className='cartitem__cost'>
                     <small>₹</small>
                     <strong>{cost}</strong>
-                    </p>
-                <button onClick={removeFromCart}>Remove from Cart</button>
-
+                </p>
+                {hidden ? (''):(<button onClick={removeFromCart}>Remove from Cart</button>)}
+                
             </div>
             
         </div>

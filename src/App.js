@@ -11,6 +11,7 @@ import { useDataLayerValue } from './Datalayer';
 import Payment from './Payment'
 import {loadStripe} from '@stripe/stripe-js'
 import {Elements} from '@stripe/react-stripe-js'
+import Orders from './Orders';
 
 const promise = loadStripe('pk_test_51Ig5wTSApxnflnsK34WnHwhcBTZJsuZIa3CxWXHBnRb8h0s0BK4FCb7DZoFDBLugdRxpQtt1hy0VcvjEsQZOVQuU00rPZRfblm');
 
@@ -40,6 +41,11 @@ function App() {
     <Router>
       <div className="app">
         <Switch>
+        <Route path='/orders'>
+           <Header />
+           <Orders />
+
+        </Route>
         <Route path='/payment'>
             <Header />
             <Elements stripe={promise}>

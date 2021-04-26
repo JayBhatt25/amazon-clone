@@ -8,9 +8,10 @@ import './Payment.css'
 import {numberFormat} from './Subtotal'
 import {getCartTotal} from './reducer'
 import axios from './axios'
+import { db } from './firebase';
 
 function Payment() {
-    const [{cart, user}] = useDataLayerValue();
+    const [{cart, user},dispatch] = useDataLayerValue();
 
     const stripe = useStripe();
     const elements = useElements();
@@ -37,16 +38,25 @@ function Payment() {
         getClientSecret();
     },[cart])
     console.log("Client secret is >>>", clientSecret)
-
+    console.log('user is', user);
     const handleSubmit = async(e) => {
         e.preventDefault();
         setProcessing(true);
 
+        dispatch({
+            type: 'EMPTY_CART'
+        })
         const payload = await stripe.confirmCardPayment(clientSecret,{
             payment_method: {
                 card: elements.getElement(CardElement)
             }
         }).then(({paymentIntent}) => {
+
+            db.collection('users').doc(user?.uid).collection('orders').doc(paymentIntent.id).set({
+                cart : cart,
+                amount: paymentIntent.amount,
+                created : paymentIntent.created
+            })
             // paymentIntent = payment confirmation
             setSucceeded(true)
             setError(false)
