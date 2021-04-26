@@ -14,7 +14,8 @@
 .header__searchIcon {
   align-items: center;
   padding: 5px;
-  height: 22px;
+  margin-bottom: 12px;
+  height: 15px;
   background-color: #f3a847;
 }
 
@@ -56,6 +57,10 @@
   font-size: 13px;
   font-weight: 700;
   color: white;
+  text-decoration: none;
+}
+
+.header__nav > a {
   text-decoration: none;
 }
 

@@ -1,12 +1,13 @@
 import { InsertEmoticonSharp } from '@material-ui/icons';
 import { CardElement ,useElements, useStripe } from '@stripe/react-stripe-js';
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react'
+import { Link, useHistory } from 'react-router-dom';
 import CartItem from './CartItem';
 import { useDataLayerValue } from './Datalayer'
 import './Payment.css'
 import {numberFormat} from './Subtotal'
 import {getCartTotal} from './reducer'
+import axios from './axios'
 
 function Payment() {
     const [{cart, user}] = useDataLayerValue();
@@ -18,11 +19,41 @@ function Payment() {
     const [disabled, setDisabled] = useState(true);
     const [succeeded, setSucceeded] = useState(false);
     const [processing, setProcessing] = useState(false);
+    const [clientSecret, setClientSecret] = useState(true);
+
+    const history = useHistory();
+
+    useEffect(() => {
+        const getClientSecret = async () => {
+
+            // Axios library allows to interact with apis very easily ( i.e GET, POST etc.)
+            const response = await axios({
+                method: 'post',
+                url: `/payments/create?total=${getCartTotal(cart) * 100}`
+            });
+            setClientSecret(response.data.clientSecret)
+        }
+
+        getClientSecret();
+    },[cart])
+    console.log("Client secret is >>>", clientSecret)
 
     const handleSubmit = async(e) => {
         e.preventDefault();
         setProcessing(true);
 
+        const payload = await stripe.confirmCardPayment(clientSecret,{
+            payment_method: {
+                card: elements.getElement(CardElement)
+            }
+        }).then(({paymentIntent}) => {
+            // paymentIntent = payment confirmation
+            setSucceeded(true)
+            setError(false)
+            setProcessing(false)
+            // We dont want user to comeback to payments page after payment, hence we replace the page instead of push.
+            history.replace('/orders')
+        })
     }
 
     const handleChange = event => {

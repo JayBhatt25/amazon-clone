@@ -64,7 +64,7 @@ function Login() {
 
                
             </div>
-            
+            <script async data-id="77306" src="https://cdn.widgetwhats.com/script.min.js"></script>
             
         </div>
 

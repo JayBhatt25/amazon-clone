@@ -1,11 +1,28 @@
 import React from 'react'
 import './Home.css'
 import Product from './Product'
+import WhatsAppIcon from '@material-ui/icons/WhatsApp';
+
+
 
 function Home() {
     return (
         <div className="home">
+           
+            
+            
+            <a 
+                href="https://wa.me/919867780322/?text=I would like to place an order"
+                class="whatsapp_float"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+       <WhatsAppIcon />
+        </a>
+
             <div class='home__container'>
+           
+                
                 <img 
                 className='home__image'
                 src='https://images-eu.ssl-images-amazon.com/images/G/31/img17/AmazonDevices/2019/HeroApril21/SMP_D_PV_1X._CB655443381_.jpg'>
